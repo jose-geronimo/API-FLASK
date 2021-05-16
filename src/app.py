@@ -5,7 +5,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:170204021@localhost/flaskmysql4'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:170204021@localhost/flaskmysql5'
 
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
@@ -15,7 +15,7 @@ class Mudanza(db.Model):
     propietario = db.Column(db.String(50), unique=True)
     origen = db.Column(db.String(70), unique=True)
     destino = db.Column(db.String(70), unique=True)
-    fecha = db.Column(db.DateTime, default=datetime.now())
+    fecha = db.Column(db.DateTime)
     fecha_llegada = db.Column(db.DateTime)
 
     def __init__(self, propietario, origen, destino, fecha, fecha_llegada):
